@@ -1,0 +1,84 @@
+body {
+    background-image: url("https://cdn.wallpapersafari.com/52/77/HLxihW.jpg");
+    background-size: 100%;
+    animation: fadeIn 2s 1;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#main-body {
+    margin-top: 10px;
+    margin-bottom: auto;
+    background-color: #010403dd;
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+    text-align: center;
+    border-radius: 5%;
+    width: 600px;
+    height: 525px;
+}
+
+#register-header {
+    color: #0f3934;
+    font-family: 'Lavishly Yours', Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+    font-size: 60px;
+    margin-bottom: -5px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.764);
+}
+
+input {
+    background-color: #3e3e3e54;
+    height: 40px;
+    width: 230px;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Zeyada', Arial, Helvetica, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5%;
+    font-size: 22px;
+}
+
+h2 {
+    color: #bebdbd;
+    font-family: 'EB Garamond', Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+
+#left-body {
+    width: 100%;
+}
+
+#right-body {
+    width: 100%;
+}
+
+#form-body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#register-button {
+    background-color: #0f3934;
+    text-transform: lowercase;
+    font-family: 'EB Garamond', Arial, Helvetica, sans-serif;
+    color: #bebdbd;
+    font-size: 20px;
+    height: 40px;
+    width: 90px;
+    padding: 2px 10px 2px 10px;
+    vertical-align: middle;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5%;
+    outline: none;
+}

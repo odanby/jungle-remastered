@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrance</title>
+    <link rel = "stylesheet" href = "css/entrance-page.css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Lavishly+Yours:regular);
+    @import url(https://fonts.googleapis.com/css?family=EB+Garamond:regular);
+    @import url(https://fonts.googleapis.com/css?family=Aboreto:regular);
+    </style>
+</head>
+<body>
+    <div id = "main-body">
+        <h1 id = "welcome-header">the Forest</h1>
+        <div id = "button-body">
+            <button id = "entrance-button" onclick = "goToLogin()">Enter</button>
+        </div>
+    </div>
+</body>
+<script>
+    const loginButton = document.getElementById("entrance-button");
+
+    function changeButtonColor() {
+        loginButton.style.color = "#021118";
+        loginButton.style.backgroundColor = "#ddddddb8"
+    }
+
+    function revertButtonColor() {
+        loginButton.style.color = "#dddddd";
+        loginButton.style.backgroundColor = "#021118d8"
+    }
+
+    loginButton.addEventListener("mouseover", changeButtonColor);
+    loginButton.addEventListener("mouseleave", revertButtonColor);
+
+    function goToLogin(){
+        window.location.href = "login-page.html"
+    }
+</script>
+</html>

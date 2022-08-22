@@ -5,18 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel = "stylesheet" href = "css/login-page.css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Lavishly+Yours:regular);
+    @import url(https://fonts.googleapis.com/css?family=EB+Garamond:regular);
+    @import url(https://fonts.googleapis.com/css?family=Aboreto:regular);
+    @import url(https://fonts.googleapis.com/css?family=Zeyada:regular);
+    </style>
 </head>
 <body>
     <div id = "main-body">
-        <h1 id = "welcome-header">Welcome to the Jungle</h1>
+        <h1 id = "welcome-header">Please Login</h1>
         <div id = "login-body">
             <h2 id = "username-header">Username</h2>
             <input type = "text" id = "username-input">
             <h2 id = "password-header">Password</h2>
             <input type = "password" id = "password-input">
-            <button id = "login-button">Enter</button>
-            <h3 id = "registration-link">New to the Jungle? Register here!</h3>
+            <br>
+            <button id = "login-button" onclick = "login()">Enter</button>
+            <h3 id = "registration-text">New to this town? <a href = "registration-page.html">Register</a></h3>
         </div>
     </div>
 </body>
+<script>
+    const loginButton = document.getElementById("login-button");
+
+    function changeButtonColor() {
+        loginButton.style.color = "#0f3934";
+        loginButton.style.backgroundColor = "#bebdbd"
+    }
+
+    function revertButtonColor() {
+        loginButton.style.color = "#bebdbd";
+        loginButton.style.backgroundColor = "#0f3934"
+    }
+
+    loginButton.addEventListener("mouseover", changeButtonColor);
+    loginButton.addEventListener("mouseleave", revertButtonColor);
+
+    const username = document.getElementById("username-input");
+    const password = document.getElementById("password-input");
+
+    async function login(){
+
+        let loginInfo = {
+            username: username.value,
+            user_password: password.value
+        };
+
+        sessionStorage.setItem("sessionUsername", username.value);
+
+        let loginJSON = JSON.stringify(loginInfo);
+
+        let config = {
+            method: "PATCH", 
+            headers: {'Content-Type':"application/json"}, 
+            body: loginJSON 
+        };
+
+        console.log(loginJSON);
+        let httpResponse = await fetch("http://localhost:8080/user/login", config);
+        console.log(httpResponse.status);
+        
+
+        if(httpResponse.status === 200){
+            let responseBody = await httpResponse.json(); 
+            window.location.href = "home-page.html";
+        } else {
+            let responseBody = await httpResponse.json();
+            alert(responseBody.message);
+        }
+    }
+</script>
 </html>

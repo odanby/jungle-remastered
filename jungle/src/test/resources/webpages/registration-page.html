@@ -5,29 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link rel = "stylesheet" href = "css/registration-page.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lavishly+Yours:regular);
+        @import url(https://fonts.googleapis.com/css?family=EB+Garamond:regular);
+        @import url(https://fonts.googleapis.com/css?family=Zeyada:regular);
+    </style>
 </head>
 <body>
     <div id = "main-body">
         <h1 id = "register-header">Register</h1>
-        <div id = "name-body">
-            <h2 id = "first-name-header">First Name</h2>
-            <input type = "text" id = "first-name-input">
-            <h2 id = "last-name-header">Last Name</h2>
-            <input type = "text" id = "last-name-input">
+        <div id = "form-body">
+            <div id = "left-body">
+                <h2 id = "first-name-header">First Name</h2>
+                <input type = "text" id = "first-name-input">
+                <h2 id = "email-header">Email Address</h2>
+                <input type = "text" id = "email-input">
+                <h2 id = "username-header">Username</h2>
+                <input type = "text" id = "username-input">
+            </div>
+            <div id = "right-body">
+                <h2 id = "last-name-header">Last Name</h2>
+                <input type = "text" id = "last-name-input">
+                <h2 id = "dob-header">Date of Birth</h2>
+                <input type = "date" id = "dob-input">
+                <h2 id = "password-header">Password</h2>
+                <input type = "password" id = "password-input">
+            </div>
         </div>
-        <div id = "email-dob-body">
-            <h2 id = "email-header">Email Address</h2>
-            <input type = "text" id = "email-input">
-            <h2 id = "dob-header">Date of Birth</h2>
-            <input type = "date" id = "dob-input">
-        </div>
-        <div id = username-password-body">
-            <h2 id = "username-header">Username</h2>
-            <input type = "text" id = "username-input">
-            <h2 id = "password-header">Password</h2>
-            <input type = "password" id = "password-input">
-        </div>
-        <button id = "register-button">Sign up</button>
+        <button id = "register-button" onclick = "createUser()">Sign up</button>
     </div>
 </body>
+<script>
+    const registerButton = document.getElementById("register-button");
+
+    function changeButtonColor() {
+        registerButton.style.color = "#0f3934";
+        registerButton.style.backgroundColor = "#bebdbd"
+    }
+
+    function revertButtonColor() {
+        registerButton.style.color = "#bebdbd";
+        registerButton.style.backgroundColor = "#0f3934"
+    }
+
+    registerButton.addEventListener("mouseover", changeButtonColor);
+    registerButton.addEventListener("mouseleave", revertButtonColor);
+
+    const firstName = document.getElementById("first-name-input");
+    const lastName = document.getElementById("last-name-input");
+    const email = document.getElementById("email-input");
+    const username = document.getElementById("username-input");
+    const password = document.getElementById("password-input");
+    const dateOfBirth = document.getElementById("dob-input");
+
+    async function createUser(){
+        let userInfo = {
+            user_id: 0,
+            first_name: firstName.value,
+            last_name: lastName.value,
+            email: email.value,
+            username: username.value,
+            user_password: password.value,
+            date_of_birth: dateOfBirth.value,
+            about_me: "New in town...starting a new life.",
+            status: "Moody",
+        };
+
+        let createUserJSON = JSON.stringify(userInfo);
+
+        let config = {
+            method: "POST",
+            headers: {'Content-Type': "application/json"},
+            body: createUserJSON
+        }
+
+        let httpResponse = await fetch("http://localhost:8080/user/registration", config);
+
+        if(httpResponse.status === 201){
+            let responseBody = await httpResponse.json();
+            window.location.href = "home-page.html"
+        } else {
+            alert(`You will now be consumed by wolves.`)
+        }
+    }
+
+</script>
 </html>
