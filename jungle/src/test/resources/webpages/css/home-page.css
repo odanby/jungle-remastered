@@ -1,0 +1,53 @@
+body {
+    background-image: repeating-linear-gradient(#205b54, #021118);
+}
+
+#profile-section{
+    background-color: #ffffff5b;
+    width: 60%;
+}
+
+#profile-pic {
+    height: 120px;
+    width: 135px;
+    border-radius: 50%;
+}
+
+#main-section {
+    width: 100%;
+}
+
+#links-section {
+    background-color: #010403b3;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#main-body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#friends {
+    height: 75px;
+    width: auto;
+}
+
+#chat {
+    height: 50px;
+    width: auto;
+}
+
+#groups {
+    height: 75px;
+    width: auto;
+}
+
+#logout {
+    height: 75px;
+    width: 75px;
+}

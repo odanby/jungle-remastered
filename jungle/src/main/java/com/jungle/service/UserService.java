@@ -27,12 +27,16 @@ public class UserService implements UserServiceInterface {
             throw new UnallowedSpaces("No spaces in username or password, please!");
         } else if (newUser.getUser_password().matches(".*\\s+.*")){
             throw new UnallowedSpaces("No spaces in username or password, please!");
+        } else if (newUser.getEmail().matches(".*\\s+.*")) {
+            throw new UnallowedSpaces("No spaces in email, please!");
         } else if (newUser.getUsername().isEmpty() || newUser.getFirst_name().isEmpty() ||
                     newUser.getLast_name().isEmpty() || newUser.getUser_password().isEmpty()
                     || newUser.getEmail().isEmpty() ){
             throw new BlankInputs("Please fill in the blank fields :)");
-        } else {
+        }  else if (newUser.getEmail().matches("^(.+)@(.+)$")){
             return this.userDAO.createNewUser(newUser);
+        } else {
+            throw new InvalidInputException("Input is not valid.");
         }
     }
 
