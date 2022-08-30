@@ -44,4 +44,12 @@ public class HibernateUtil {
         return session;
     }
     
+    public static void saveTransaction(Object object) {
+        session.save(object);
+    }
+
+    public static void persistandcomiit(Object object){
+        session.persist(object);
+        session.getTransaction().commit();
+    }
 }

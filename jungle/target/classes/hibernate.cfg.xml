@@ -30,6 +30,9 @@
         <!-- Object Reational Mapping, we're mapping our Login class (that we have yet to create) to a table in our database-->
         <!-- NOTE: need to map other classes for other tables-->
         <mapping class="com.jungle.entities.User"/>
-        
+        <mapping class="dev.com.thejungle.entity.ChatMessage"/> 
+        <mapping class="dev.com.thejungle.entity.Post"/>
+        <mapping class="dev.com.thejungle.entity.PostPicture"/>  
+        <mapping class="dev.com.thejungle.entity.Comment"/> 
     </session-factory>
 </hibernate-configuration>
