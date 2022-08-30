@@ -13,7 +13,7 @@ My goal is to create a full-stack social media application, "The Jungle".
 
 I will be creating a functional user interface that works with a dynamic database, and run automated tests of every level to ensure our application meets all of our sprint requirements.
 
-My deadline is 9/9.
+My deadline is 9/16.
 
 ## Technologies
 - HTML
@@ -44,7 +44,7 @@ My deadline is 9/9.
 - Trello
     - Project management board
 
-## Sprint Backlog
+## Sprint Backlog and Acceptance Criteria
 These are all the user stories we need to complete to create a minimum viable product (MVP):
 
 - User Registration
@@ -57,13 +57,51 @@ These are all the user stories we need to complete to create a minimum viable pr
 - User Logout
     - Users can log out
 - User Profile
-    - Users
+    - Users can create a profile (about me, status, dob, groups)
+    - Users can update their profile
+    - Users can create their own avatar as their profile pic
 - User Posts
+    - Users can create a post
+    - Users can delete a post
 - User Comments
-- Group Create/Join
-- Group Profile
-- Group Posts
-- Group Comments
-- Chat Page
-    - Global
-    - Group
+    - Users can create a comment
+    - Users can delete a comment
+
+## Testing Requirements
+See Sprint Backlog for what user stories we will be testing for.
+
+
+- Unit Tests
+    - "Repository Layer"
+        - All methods must have a positive test
+            - This is where we will take a single piece of the application's code logic and test it in isolation
+            - The goal of this is to check the logic of the code we have written
+    - "Service Layer"
+        - All methods must have a negative test per business rule
+            - We can use Mockito to stub the methods for these tests
+            - This is where we will confirm that we have handled any business logic that has specifically been requested
+
+- Integration Tests
+    - API
+        - All routes must have a positive test
+        - All routes must have a negative test per business rue
+
+- End to End Tests
+    - All acceptance criteria must be tested via Cucumber and Selenium
+
+## Timeline
+- Week of 8/29 - 9/2
+    - Create wireframes
+    - Write documentation
+    - Turn user stories into acceptance criteria
+    - Create project management board (serving as requirements traceability matrix)
+    - Create database
+    - Create basic UI
+    - Create all entities/objects, repo tests, service tests
+- Week of 9/2 - 9/9
+    - More advanced UI design
+    - Create profile avatar feature
+- Week of 9/12 - 9/16
+    - End to End tests
+    - Debugging
+    - Present project to family
